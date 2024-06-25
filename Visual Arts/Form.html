@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Application Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            padding: 20px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('img/banner-bk.jpg'); /* Path to your image */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-attachment: fixed; /* Fix the image in place */
+        }
+
+        .content {
+            color: white;
+            text-align: center;
+            padding-top: 20%;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section h2 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .form-section-number {
+            background-color: #17a2b8;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .container-form {
+            text-align: center; /* Centers the button within the container */
+        }
+        .btn-submit {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            width: 50%;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin: 0 auto; /* Centers the button */
+            display: inline-block; /* Ensures it behaves correctly within text-align center */
+            text-align: center;
+        }
+
+        .btn-submit:hover {
+            background-color: #218838;
+        }
+        .form-group .radio-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Register</h1>
+        </div>
+        <form>
+            <div class="form-section">
+                <h2><span class="form-section-number">1</span>Your Basic Info</h2>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="abcd@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact:</label>
+                    <input type="contact" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" class="form-control">
+                </div>                
+            </div>
+            <div class="form-section">
+                <h2><span class="form-section-number">2</span>Your Profile</h2>
+                <div class="form-group">
+                    <label for="bio">Bio:</label>
+                    <textarea class="form-control" id="bio" name="bio" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="job-role">Job Role:</label>
+                    <select class="form-control" id="job-role" name="job-role">
+                        <option>Front-End Developer</option>
+                        <option>Back-End Developer</option>
+                        <option>Full-Stack Developer</option>
+                        <option>Designer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="internshipDomain">Internship Domain:</label>
+                    <select name="internshipDomain" id="internshipDomain" class="form-control">
+                        <option value="Cyber Security">Cyber Security</option>
+                        <option value="AI & ML">AI & ML (Artificial Intelligence & Machine Learning)</option>
+                        <option value="Deep Learning">Deep Learning</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="SQL">SQL</option>
+                        <option value="NoSQL">NoSQL</option>
+                        <option value="Android Development">Android Development</option>
+                        <option value="Flutter">Flutter</option>
+                        <option value="MERN Technologies">MERN Technologies</option>
+                        <option value="DevOps">DevOps</option>
+                    </select>
+                </div>
+                </div>
+                <div class="container-form">
+                    <button type="submit" class="btn btn-submit" id="submitBtn">Submit</button>
+                </div>
+            </div>
+           
+            
+        </form>
+    </div>
+</body>
+<script>
+    document.getElementById('submitBtn').addEventListener('click', function() {
+        // Display popup message
+        alert('Form is submitted!');
+
+        // Redirect to index.html after 1 second
+        setTimeout(function() {
+            window.location.href = 'index.html';
+        });
+    });
+
+
+    document.getElementById('dob').addEventListener('change', function() {
+            const dob = new Date(this.value);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            document.getElementById('age').value = age;
+        });
+</script>
+</html>
